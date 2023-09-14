@@ -23,7 +23,6 @@ export default function RecipeReviewCard({books}) {
                                 key={book.id} item 
                                 xl={1} lg={1} md={1} sm={1} xs={1} 
                                 sx={{
-                                    border: "2px solid black", 
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center"

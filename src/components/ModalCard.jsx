@@ -25,7 +25,8 @@ export default function BasicModal({book}) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen} variant="contained">description</Button>
+      
       <Modal
         open={open}
         onClose={handleClose}
