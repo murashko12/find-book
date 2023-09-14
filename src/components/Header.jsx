@@ -76,13 +76,17 @@ const Header = ({search,setSearch,searchBook}) => {
                 justifyContent: 'space-between',
                 marginBottom: 2
             }}>
-            <FormControl>
+            <FormControl
+                sx={{
+                    width: "48%"
+                }}
+            >
                 <Typography variant='h5' color='white'>Categories</Typography>
                 <Select
                     sx={{
                         border: '2px solid white', 
                         borderRadius: 2,
-                        width: 190,
+                        width: "100%",
                         height: 50,
                         fontSize: 22,
                         color: 'white',
@@ -102,13 +106,17 @@ const Header = ({search,setSearch,searchBook}) => {
                 </Select>
             </FormControl>
 
-            <FormControl>
+            <FormControl
+                sx={{
+                    width: "48%"
+                }}
+            >
                 <Typography variant='h5' color='white'>Sorted by</Typography> 
                 <Select
                     sx={{
                         border: '2px solid white', 
                         borderRadius: 2,
-                        width: 190,
+                        width: "100%",
                         height: 50,
                         fontSize: 22,
                         color: 'white'
