@@ -31,9 +31,9 @@ const Header = ({search,setSearch,searchBook}) => {
             backgroundColor: 'gray',
             flexDirection: 'column',
             alignItems: 'center',
-            position: 'fixed',
+            
             width: '100%',
-            zIndex: 1,
+            
                   
         }}>
             <Typography variant='h3'
@@ -88,8 +88,8 @@ const Header = ({search,setSearch,searchBook}) => {
 
                     }}
                     value={categories}
-                    onChange={handleChangeCategories}
                     defaultValue={'all'}
+                    onChange={handleChangeCategories}
                 >
                     <MenuItem value={'all'}>all</MenuItem>
                     <MenuItem value={'art'}>art</MenuItem>

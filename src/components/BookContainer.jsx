@@ -5,17 +5,18 @@ import { Box, Grid } from '@mui/material';
 export default function RecipeReviewCard({books}) {
   
     return (
-            <Box marginTop={40}>
+            <Box marginTop={10}
+                paddingLeft={10}
+            >
             <Grid 
-                
                 container 
-                spacing={{ xs: 2, md: 10 }} 
-                columns={{ xs: 4, sm: 8, md: 16 }}
+                spacing={{ xs: 3, md: 10 }} 
+                columns={{ xs: 3, sm: 3, md: 4 }}
             >
                 {
                     books.map((book) => {
                         return (
-                            <Grid key={book.id} item xs={2} sm={4} md={4} sx={{border: "2px solid black", width: 100}}>
+                            <Grid key={book.id} item xs={3} sm={3} md={1} sx={{border: "2px solid black", width: 100}}>
                                 <BookCard book={book}/>
                             </Grid>
                         )

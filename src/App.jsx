@@ -19,7 +19,10 @@ function App() {
 
     const [search, setSearch] = useState("")
     const [bookData, setData] = useState([])
-    // const [totalItems, srtTotalItems] = useState(0)
+    
+    function sortCategories() {
+
+    }
 
     const count = 40
 
@@ -30,13 +33,11 @@ function App() {
             
             .catch(err => console.log(err))
         }
-
     }
     
     return (
         <>
             <Header search={search} setSearch={setSearch} searchBook={searchBook}/>
-            <Typography variant="h7" color="initial">-</Typography>
             <BookContainer books={bookData}/>
 
         </>
