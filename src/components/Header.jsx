@@ -31,7 +31,6 @@ const Header = ({search,setSearch,searchBook}) => {
             backgroundColor: 'gray',
             flexDirection: 'column',
             alignItems: 'center',
-            
             width: '100%',
             
                   
@@ -53,13 +52,15 @@ const Header = ({search,setSearch,searchBook}) => {
                     border: '2px solid white', 
                     borderRadius: 2,
                     paddingLeft: 1.7,
-                    width: 400,
+                    width: {sm: 400, xs: "90%"},
                     height: 50,
                     fontSize: 22,
                     color: 'white',
                     marginTop: 3,
-                    marginBottom: 1 
+                    marginBottom: 1,
+                    
                 }}
+                
                 disableUnderline
                 placeholder="Search..."
                 id="basic-input"
@@ -71,7 +72,7 @@ const Header = ({search,setSearch,searchBook}) => {
             />
             <Box sx={{
                 display: 'flex',
-                width: 400,
+                width: {sm: 400, xs: "90%"},
                 justifyContent: 'space-between',
                 marginBottom: 2
             }}>
@@ -115,8 +116,8 @@ const Header = ({search,setSearch,searchBook}) => {
                     value={age}
                     onChange={handleChange}
                 >
-                    <MenuItem value={'all'}>relevance</MenuItem>
-                    <MenuItem value={'all'}>newest</MenuItem>
+                    <MenuItem value={'relevance'}>relevance</MenuItem>
+                    <MenuItem value={'newest'}>newest</MenuItem>
                 </Select>
             </FormControl>
             </Box>
