@@ -4,24 +4,16 @@ import BookContainer from './components/BookContainer'
 import axios from 'axios'
 import Header from './components/Header'
 import Typography from '@mui/material/Typography'
+import React from 'react'
 
 
 function App() {
-    
-    const categoriesBook = [
-        { label: 'all' },
-        { label: 'art' },
-        { label: 'biography' },
-        { label: 'computers' },
-        { label: 'history' },
-        { label: 'medical' },
-        { label: 'poetry' }
-    ];
 
     const [search, setSearch] = useState("")
     const [bookData, setData] = useState([])
     
-    function sortCategories() {
+    
+    function sortCategories(array,sortType) {
 
     }
 
@@ -36,11 +28,43 @@ function App() {
         }
     }
     
+    const categoriesBook = [
+        { id: 1, label: 'all' },
+        { id: 2, label: 'art' },
+        { id: 3, label: 'biography' },
+        { id: 4, label: 'computers' },
+        { id: 5, label: 'history' },
+        { id: 6, label: 'medical' },
+        { id: 7, label: 'poetry' }
+    ];
+
+    const typeBook = [
+        { id: 1, label: 'relevance'},
+        { id: 2, label: 'newest'}
+    ]
+
+    const [categories, setCategories] = React.useState(categoriesBook[0].label);
+    const [sort, setSort] = React.useState(typeBook[0].label);
+    
+    function sortCategories(array,sortType) {
+        
+    }
+
     return (
         <>
-            <Header search={search} setSearch={setSearch} searchBook={searchBook}/>
+            <Header 
+                search={search} 
+                setSearch={setSearch} 
+                searchBook={searchBook}
+                categories={categories}
+                setCategories={setCategories}
+                sort={sort}
+                setSort={setSort}
+            />
             
-            <BookContainer books={bookData}/>
+            <BookContainer 
+                books={bookData}
+            />
 
         </>
     )

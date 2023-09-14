@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Box, Input, Typography } from '@mui/material'
 
 import MenuItem from '@mui/material/MenuItem';
@@ -5,24 +7,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
+const Header = ({search,setSearch,searchBook,categories, setCategories,sort, setSort}) => {
 
-
-
-import React from 'react'
-
-
-const Header = ({search,setSearch,searchBook}) => {
-
-    const [categories, setCategories] = React.useState('all');
-    const handleChangeCategories = (event) => {
-        setCategories(event.target.value);
-    };
-
-    const [sort, setSort] = React.useState('relevance');
-    const handleChangeSort = (event) => {
-        setSort(event.target.value);
-    };
-  
+    
+    
     return (
         <Box sx={{
             display: 'flex',
@@ -92,15 +80,15 @@ const Header = ({search,setSearch,searchBook}) => {
                     }}
                     value={categories}
                     defaultValue={categories}
-                    onChange={handleChangeCategories}
+                    onChange={(event) => setCategories(event.target.value)}
                 >
-                    <MenuItem value={"all"}>all</MenuItem>
-                    <MenuItem value={"art"}>art</MenuItem>
-                    <MenuItem value={"biography"}>biography</MenuItem>
-                    <MenuItem value={"computers"}>computers</MenuItem>
-                    <MenuItem value={"history"}>history</MenuItem>
-                    <MenuItem value={"medical"}>medical</MenuItem>
-                    <MenuItem value={"poetry"}>poetry</MenuItem>
+                    <MenuItem value={'all'}>all</MenuItem>
+                    <MenuItem value={'art'}>art</MenuItem>
+                    <MenuItem value={'biography'}>biography</MenuItem>
+                    <MenuItem value={'computers'}>computers</MenuItem>
+                    <MenuItem value={'history'}>history</MenuItem>
+                    <MenuItem value={'medical'}>medical</MenuItem>
+                    <MenuItem value={'poetry'}>poetry</MenuItem>
                 </Select>
             </FormControl>
 
@@ -120,11 +108,11 @@ const Header = ({search,setSearch,searchBook}) => {
                         color: 'white'
                     }}
                     value={sort}
-                    onChange={handleChangeSort}
+                    onChange={(event) => setSort(event.target.value)}
                     defaultValue={sort}
                 >
-                    <MenuItem value={"relevance"}>relevance</MenuItem>
-                    <MenuItem value={"newest"}>newest</MenuItem>
+                    <MenuItem value={'relevance'}>relevance</MenuItem>
+                    <MenuItem value={'newest'}>newest</MenuItem>
                 </Select>
             </FormControl>
 
