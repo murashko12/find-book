@@ -1,4 +1,4 @@
-import { Card, CardMedia} from '@mui/material'
+import { Box, Card, CardMedia, Typography} from '@mui/material'
 
 import ModalCard from './ModalCard';
 
@@ -11,15 +11,35 @@ const BookCard = ({book}) => {
                 width: "90%" ,
                 height: 500,
                 margin: 3,
-                backgroundColor: "grey"
-                
+                backgroundColor: "grey",
+                padding: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                borderRadius:4,
+                alignItems: 'center'
+
             }}>
-                <CardMedia
-                    component="img"
-                    height="400px"
-                    image={book.volumeInfo.imageLinks.thumbnail}
-                    alt="Book cover"
-                />
+
+            <Box
+                component="img"
+                sx={{
+                    height: 300,
+                    width: 200,
+                    objectFit: 'cover'
+                }}
+                alt="Book cover"
+                src={book.volumeInfo.imageLinks.thumbnail}
+            />
+                <Box sx={{
+                    
+                    width: "100%",
+                    height: "70px",
+                    overflowY: "scroll",
+                
+                }}>
+                    <Typography color="white" fontWeight='bold'>{book.volumeInfo.title}</Typography>
+                </Box>
 
                 
                 <ModalCard book={book}/>
