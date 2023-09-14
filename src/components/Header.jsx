@@ -13,18 +13,16 @@ import React from 'react'
 
 const Header = ({search,setSearch,searchBook}) => {
 
-    const [categories, setCategories] = React.useState('');
-
+    const [categories, setCategories] = React.useState('all');
     const handleChangeCategories = (event) => {
         setCategories(event.target.value);
     };
 
-    const [age, setAge] = React.useState('');
-    const handleChange = (event) => {
-        setAge(event.target.value);
+    const [sort, setSort] = React.useState('relevance');
+    const handleChangeSort = (event) => {
+        setSort(event.target.value);
     };
   
-
     return (
         <Box sx={{
             display: 'flex',
@@ -93,16 +91,16 @@ const Header = ({search,setSearch,searchBook}) => {
 
                     }}
                     value={categories}
-                    defaultValue={'all'}
+                    defaultValue={categories}
                     onChange={handleChangeCategories}
                 >
-                    <MenuItem value={'all'}>all</MenuItem>
-                    <MenuItem value={'art'}>art</MenuItem>
-                    <MenuItem value={'biography'}>biography</MenuItem>
-                    <MenuItem value={'computers'}>computers</MenuItem>
-                    <MenuItem value={'history'}>history</MenuItem>
-                    <MenuItem value={'medical'}>medical</MenuItem>
-                    <MenuItem value={'poetry'}>poetry</MenuItem>
+                    <MenuItem value={"all"}>all</MenuItem>
+                    <MenuItem value={"art"}>art</MenuItem>
+                    <MenuItem value={"biography"}>biography</MenuItem>
+                    <MenuItem value={"computers"}>computers</MenuItem>
+                    <MenuItem value={"history"}>history</MenuItem>
+                    <MenuItem value={"medical"}>medical</MenuItem>
+                    <MenuItem value={"poetry"}>poetry</MenuItem>
                 </Select>
             </FormControl>
 
@@ -121,14 +119,23 @@ const Header = ({search,setSearch,searchBook}) => {
                         fontSize: 22,
                         color: 'white'
                     }}
-                    value={age}
-                    onChange={handleChange}
+                    value={sort}
+                    onChange={handleChangeSort}
+                    defaultValue={sort}
                 >
-                    <MenuItem value={'relevance'}>relevance</MenuItem>
-                    <MenuItem value={'newest'}>newest</MenuItem>
+                    <MenuItem value={"relevance"}>relevance</MenuItem>
+                    <MenuItem value={"newest"}>newest</MenuItem>
                 </Select>
             </FormControl>
+
+                    
+
+
+
+
+
             </Box>
+
         </Box>
     )
 }

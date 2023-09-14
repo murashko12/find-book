@@ -5,6 +5,7 @@ import axios from 'axios'
 import Header from './components/Header'
 import Typography from '@mui/material/Typography'
 
+
 function App() {
     
     const categoriesBook = [
@@ -38,6 +39,7 @@ function App() {
     return (
         <>
             <Header search={search} setSearch={setSearch} searchBook={searchBook}/>
+            
             <BookContainer books={bookData}/>
 
         </>
