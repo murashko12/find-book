@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import BookContainer from './components/BookContainer'
 import axios from 'axios'
 import Header from './components/Header'
 import Typography from '@mui/material/Typography'
 import React from 'react'
+import { Box } from '@mui/material'
+
 
 
 function App() {
@@ -13,20 +15,34 @@ function App() {
     const [bookData, setData] = useState([])
     
     
+    const [totalItems, setTotalItems] = useState(0)
+
     function sortCategories(array,sortType) {
 
     }
 
-    const count = 40
+    const count = 20
 
     const searchBook=(evt)=>{
         if(evt.key === "Enter") {
             axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyBzMmKAHjxRFwwogI3jidqBkkmDw38ogBw&maxResults=${count}`)
-            .then(res => setData(res.data.items))
+            .then(res => {
+                setData(res.data.items)
+                setTotalItems(res.data.totalItems)
+        })
             
             .catch(err => console.log(err))
         }
     }
+    // search = 'react'
+    // count = 20
+
+    // useEffect(() => {
+    //     fetch(`https://www.googleapis.com/books/v1/volumes?q=react&key=AIzaSyBzMmKAHjxRFwwogI3jidqBkkmDw38ogBw&maxResults=20`)
+    //     .then(res => setData(res.data.items))
+    //     .then(res => console.log(res.data.items))
+    //     .catch(err => console.log(err))
+    // },[search])
     
     const categoriesBook = [
         { id: 1, label: 'all' },
@@ -61,7 +77,19 @@ function App() {
                 sort={sort}
                 setSort={setSort}
             />
-            
+                {totalItems 
+                ? 
+                <Box sx={{
+                    backgroundColor: "grey",
+
+                    textAlign: "center"
+                }}>
+                    <Typography variant="h4" color="white" fontWeight="bold">
+                        Found {totalItems} results
+                    </Typography> 
+                </Box>
+                : 
+                <></>}
             <BookContainer 
                 books={bookData}
             />
