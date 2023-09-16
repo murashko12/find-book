@@ -7,10 +7,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-const Header = ({search,setSearch,searchBook,categories, setCategories,sort, setSort}) => {
+const Header = ({search,setSearch,searchBook,categories,setCategories,sort,setSort,categoriesBook,typeBook}) => {
 
-    
-    
     return (
         <Box sx={{
             display: 'flex',
@@ -62,68 +60,59 @@ const Header = ({search,setSearch,searchBook,categories, setCategories,sort, set
                 justifyContent: 'space-between',
                 marginBottom: 2
             }}>
-            <FormControl
-                sx={{
-                    width: "48%"
-                }}
-            >
-                <Typography variant='h5' color='white'>Categories</Typography>
-                <Select
-                    sx={{
-                        border: '2px solid white', 
-                        borderRadius: 2,
-                        width: "100%",
-                        height: 50,
-                        fontSize: 22,
-                        color: 'white',
 
-                    }}
-                    value={categories}
-                    defaultValue={categories}
-                    onChange={(event) => setCategories(event.target.value)}
-                >
-                    <MenuItem value={'all'}>all</MenuItem>
-                    <MenuItem value={'art'}>art</MenuItem>
-                    <MenuItem value={'biography'}>biography</MenuItem>
-                    <MenuItem value={'computers'}>computers</MenuItem>
-                    <MenuItem value={'history'}>history</MenuItem>
-                    <MenuItem value={'medical'}>medical</MenuItem>
-                    <MenuItem value={'poetry'}>poetry</MenuItem>
-                </Select>
-            </FormControl>
+                <FormControl sx={{width: "48%"}}>
+                    <Typography variant='h5' color='white'>Categories</Typography>
+                    <Select
+                        sx={{
+                            border: '2px solid white', 
+                            borderRadius: 2,
+                            width: "100%",
+                            height: 50,
+                            fontSize: 22,
+                            color: 'white'
+                        }}
+                        
+                        value={categories}
+                        defaultValue={categories}
+                        onChange={(event) => setCategories(event.target.value)}
+                    >
+                        {
+                            categoriesBook.map((item) => {
+                                return (
+                                    <MenuItem key={item.id} value={item.label}>{item.label}</MenuItem>            
+                                )
+                            })
+                        }
+                    </Select>
+                </FormControl>
 
-            <FormControl
-                sx={{
-                    width: "48%"
-                }}
-            >
-                <Typography variant='h5' color='white'>Sorted by</Typography> 
-                <Select
-                    sx={{
-                        border: '2px solid white', 
-                        borderRadius: 2,
-                        width: "100%",
-                        height: 50,
-                        fontSize: 22,
-                        color: 'white'
-                    }}
-                    value={sort}
-                    onChange={(event) => setSort(event.target.value)}
-                    defaultValue={sort}
-                >
-                    <MenuItem value={'relevance'}>relevance</MenuItem>
-                    <MenuItem value={'newest'}>newest</MenuItem>
-                </Select>
-            </FormControl>
+                <FormControl sx={{width: "48%"}}>
+                    <Typography variant='h5' color='white'>Sorted by</Typography> 
+                    <Select
+                        sx={{
+                            border: '2px solid white', 
+                            borderRadius: 2,
+                            width: "100%",
+                            height: 50,
+                            fontSize: 22,
+                            color: 'white'
+                        }}
+                        value={sort}
+                        onChange={(event) => setSort(event.target.value)}
+                        defaultValue={sort}
+                    >
+                        {
+                            typeBook.map((item) => {
+                                return (
+                                    <MenuItem key={item.id} value={item.label}>{item.label}</MenuItem>        
+                                )
+                            })
+                        }
 
-                    
-
-
-
-
-
+                    </Select>
+                </FormControl>
             </Box>
-
         </Box>
     )
 }

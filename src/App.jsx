@@ -5,7 +5,7 @@ import axios from 'axios'
 import Header from './components/Header'
 import Typography from '@mui/material/Typography'
 import React from 'react'
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material'
 
 
 
@@ -21,14 +21,15 @@ function App() {
 
     }
 
-    const count = 20
+    
 
     const searchBook=(evt)=>{
         if(evt.key === "Enter") {
-            axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyBzMmKAHjxRFwwogI3jidqBkkmDw38ogBw&maxResults=${count}`)
+            axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyBzMmKAHjxRFwwogI3jidqBkkmDw38ogBw&maxResults=${20}`)
             .then(res => {
                 setData(res.data.items)
                 setTotalItems(res.data.totalItems)
+                
         })
             
             .catch(err => console.log(err))
@@ -76,7 +77,11 @@ function App() {
                 setCategories={setCategories}
                 sort={sort}
                 setSort={setSort}
+
+                categoriesBook={categoriesBook}
+                typeBook={typeBook}
             />
+
                 {totalItems 
                 ? 
                 <Box sx={{
@@ -90,10 +95,9 @@ function App() {
                 </Box>
                 : 
                 <></>}
-            <BookContainer 
-                books={bookData}
-            />
 
+            <BookContainer books={bookData}/>
+            
         </>
     )
 }
